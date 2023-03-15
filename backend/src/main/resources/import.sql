@@ -1,0 +1,76 @@
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'RS', 'Porto Alegre', '90450-030', 'Eudoro Berlink', '417', 'Auxiliadora', 'Apto 201');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'SP', 'São Paulo', '01234-567', 'Avenida Paulista', '1000', 'Centro', 'Apto 501');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'RJ', 'Rio de Janeiro', '20000-000', 'Rua do Ouvidor', '25', 'Centro', 'Sala 302');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'MG', 'Belo Horizonte', '30100-000', 'Rua dos Timbiras', '1500', 'Centro', 'Apto 101');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'BA', 'Salvador', '40000-000', 'Avenida Sete de Setembro', '100', 'Vitória', 'Apto 303');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'CE', 'Fortaleza', '60000-000', 'Rua Barão do Rio Branco', '200', 'Centro', 'Apto 405');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'PE', 'Recife', '50000-000', 'Rua da Aurora', '100', 'Boa Vista', 'Casa 2');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'PR', 'Curitiba', '80000-000', 'Rua XV de Novembro', '500', 'Centro', 'Apto 707');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'RS', 'Caxias do Sul', '95000-000', 'Rua São Pelegrino', '1234', 'São Pelegrino', 'Apto 204');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'SC', 'Florianópolis', '88000-000', 'Avenida Jornalista Rubens de Arruda Ramos', '5000', 'Centro', 'Apto 301');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'GO', 'Goiânia', '74000-000', 'Avenida Goiás', '500', 'Centro', 'Sala 104');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'DF', 'Brasília', '70000-000', 'Quadra 702', 'Bloco A', 'Asa Sul', 'Apto 12');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'MT', 'Cuiabá', '78000-000', 'Avenida Historiador Rubens de Mendonça', '2000', 'Centro', 'Apto 505');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'MS', 'Campo Grande', '79000-000', 'Avenida Afonso Pena', '5000', 'Centro', 'Casa 3');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'AM', 'Manaus', '69000-000', 'Rua Max Teixeira', '200', 'Cidade Nova', 'Apto 303');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'PA', 'Belém', '66000-000', 'Avenida Governador José Malcher', '1000', 'Centro', 'Sala 202');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'MA', 'São Luís', '65000-000', 'Avenida dos Holandeses', '2500', 'Calhau', 'Apto 802');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'PI', 'Teresina', '64000-000', 'Rua Coelho Rodrigues', '400', 'Centro', 'Apto 101');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'PB', 'João Pessoa', '58000-000', 'Avenida Epitácio Pessoa', '800', 'Cabo Branco', 'Apto 501');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'RN', 'Natal', '59000-000', 'Avenida Senador Salgado Filho', '600', 'Tirol', 'Casa 4');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'SE', 'Aracaju', '49000-000', 'Rua José do Prado Franco', '1200', 'Centro', 'Apto 102');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'AL', 'Maceió', '57000-000', 'Avenida Álvaro Calheiros', '200', 'Ponta Verde', 'Apto 303');
+INSERT INTO tb_address (country, state, city, zip_code, street, number, district, address_complement) VALUES ('Brasil', 'TO', 'Palmas', '77000-000', 'Quadra 103 Norte', 'Avenida LO-07', 'Plano Diretor Norte', 'Apto 302');
+
+INSERT INTO tb_professional (name, cpf, rg, email, phone, birthdate, registration_date, gender, specialization, address_id) VALUES ('Ana Silva', '123.456.789-00', '6374839201', 'ana.silva@example.com', '(21) 98273-8091', '1985-04-12', '2024-01-15', 1, 0, 1);
+INSERT INTO tb_professional (name, cpf, rg, email, phone, birthdate, registration_date, gender, specialization, address_id) VALUES ('Carlos Oliveira', '987.654.321-00', '9283647582', 'carlos.oliveira@example.com', '(11) 99475-7834', '1978-11-25', '2024-02-20', 0, 1, 2);
+INSERT INTO tb_professional (name, cpf, rg, email, phone, birthdate, registration_date, gender, specialization, address_id) VALUES ('Juliana Costa', '456.789.123-00', '8364728561', 'juliana.costa@example.com', '(62) 99874-1294', '1990-08-09', '2024-03-05', 1, 0, 3);
+
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('Maria Oliveira', '1990-05-15', '2024-01-10', 0, '123.456.789-01', '8846337289', 'maria.oliveira@example.com', '(11) 98765-4321', 1, 4);
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('João Silva', '1985-11-22', '2024-02-12', 1, '987.654.321-00', '9336448654', 'joao.silva@example.com', '(21) 97654-3210', 0, 5);
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('Ana Costa', '1992-07-30', '2024-03-05', 3, '456.789.123-45', '0118366453', 'ana.costa@example.com', '(31) 95555-1234', 2, 6);
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('Carlos Pereira', '1978-04-10', '2024-04-18', 2, '321.654.987-00', '8339561083', 'carlos.pereira@example.com', '(71) 98765-4321', 2, 7);
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('Fernanda Almeida', '1989-10-20', '2024-05-22', 0, '654.321.987-00', '9946583275', 'fernanda.almeida@example.com', '(41) 91234-5678', 1, 8);
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('Roberto Souza', '1994-06-28', '2024-06-30', 1, '852.963.741-00', '7118335401', 'roberto.souza@example.com', '(85) 98765-4321', 0, 9);
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('Mariana Lima', '1980-01-15', '2024-07-12', 2, '741.852.963-00', '9983573410', 'mariana.lima@example.com', '(48) 97654-3210', 1, 10);
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('Lucas Ferreira', '1991-08-25', '2024-08-15', 1, '963.852.741-00', '0499384628', 'lucas.ferreira@example.com', '(61) 95555-1234', 2, 11);
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('Tatiane Silva', '1986-03-12', '2024-09-20', 0, '147.258.369-00', '9926371856', 'tatiane.silva@example.com', '(62) 98765-4321', 1, 12);
+INSERT INTO tb_client (name, birthdate, registration_date, marital_status, cpf, rg, email, phone, gender, address_id) VALUES ('Gustavo Almeida', '1995-12-01', '2024-10-05', 2, '258.369.147-00', '9477364591', 'gustavo.almeida@example.com', '(92) 95555-6789', 0, 13);
+
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Pedro Souza', '123.456.789-00', '9074836451', 'pedro.souza@example.com', '(92) 98364-0987', '1985-06-15', '2024-01-01', 0, 'pedro.souza', 'senha123', 0, 14);
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Julia Costa', '234.567.890-11', '1083748599', 'julio.costa@example.com', '(51) 99234-6490', '1990-11-22', '2024-02-15', 1, 'julia.costa', 'senha456', 0, 15);
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Ricardo Almeida', '345.678.901-22', '9473662846', 'ricardo.almeida@example.com', '(62) 98172-0967', '1979-04-05', '2024-03-10', 0, 'ricardo.almeida', 'senha789', 1, 16);
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Larissa Oliveira', '456.789.012-33', '8462548309', 'larissa.oliveira@example.com', '(48) 98609-1523', '1988-08-30', '2024-04-25', 1, 'larissa.oliveira', 'senha101', 0, 17);
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Felipe Santos', '567.890.123-44', '9746582640', 'felipe.santos@example.com', '(87) 98167-3487', '1995-12-12', '2024-05-18', 0, 'felipe.santos', 'senha202', 0, 18);
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Amanda Lima', '678.901.234-55', '9748561046', 'amanda.lima@example.com', '(54) 98609-4563', '1983-07-25', '2024-06-20', 1, 'amanda.lima', 'senha303', 1, 19);
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Marcos Pereira', '789.012.345-66', '9748592745', 'marcos.pereira@example.com', '(51) 98745-0971', '1992-10-10', '2024-07-15', 0, 'marcos.pereira', 'senha404', 0, 20);
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Camila Ferreira', '890.123.456-77', '9847502648', 'camila.ferreira@example.com', '(92) 98701-8756', '1987-02-28', '2024-08-30', 1, 'camila.ferreira', 'senha505', 0, 21);
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Lucas Martins', '901.234.567-88', '8463829467', 'lucas.martins@example.com', '(74) 99235-9856', '1994-09-05', '2024-09-20', 0, 'lucas.martins', 'senha606', 1, 22);
+INSERT INTO tb_user (name, cpf, rg, email, phone, birthdate, registration_date, gender, username, password, role, address_id) VALUES ('Isabela Silva', '012.345.678-99', '0837451834', 'isabela.silva@example.com', '(32) 98723-0917', '1991-03-15', '2024-10-10', 1, 'isabela.silva', 'senha707', 0, 23);
+
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-09-20', '08:30', '09:00', 300.0, 1, 1);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-09-20', '09:30', '10:00', 300.0, 2, 3);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('cirurgia', '2024-09-20', '08:00', '09:00', 500.0, 3, 2);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-09-20', '10:30', '11:00', 300.0, 4, 3);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-09-20', '11:00', '11:30', 300.0, 5, 1);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('cirurgia', '2024-09-20', '10:00', '11:00', 500.0, 6, 2);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('cirurgia', '2024-09-25', '11:00', '12:00', 500.0, 1, 2);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-09-20', '13:30', '14:00', 300.0, 7, 1);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-09-21', '08:30', '09:00', 300.0, 8, 3);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('cirurgia', '2024-09-21', '08:00', '09:00', 500.0, 3, 2);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-09-21', '15:30', '16:00', 300.0, 8, 1);
+
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-06-27', '08:30', '09:00', 300.0, 1, 1);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-08-20', '09:30', '10:00', 300.0, 2, 3);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('cirurgia', '2024-09-08', '08:00', '09:00', 500.0, 3, 2);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-09-02', '10:30', '11:00', 300.0, 4, 3);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-07-15', '11:00', '11:30', 300.0, 5, 1);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('cirurgia', '2024-05-12', '10:00', '11:00', 500.0, 6, 2);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('cirurgia', '2024-06-16', '11:00', '12:00', 500.0, 1, 2);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-09-07', '13:30', '14:00', 300.0, 7, 1);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-04-21', '08:30', '09:00', 300.0, 8, 3);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('cirurgia', '2024-03-21', '08:00', '09:00', 500.0, 3, 2);
+INSERT INTO tb_consultation (type, consult_date, hour_init, hour_end, consultation_value, client_id, professional_id) VALUES ('normal', '2024-08-13', '15:30', '16:00', 300.0, 8, 1);
+
+
+

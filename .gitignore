@@ -1,0 +1,21 @@
+# Backend
+backend/target/
+backend/.idea/
+backend/*.iws
+backend/*.iml
+backend/*.ipr
+backend/.apt_generated
+backend/.classpath
+backend/.factorypath
+backend/.project
+backend/.settings
+backend/.springBeans
+backend/.sts4-cache
+backend/.vscode/
+
+# Frontend
+frontend/.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
