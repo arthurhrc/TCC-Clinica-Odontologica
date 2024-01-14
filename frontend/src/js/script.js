@@ -1041,25 +1041,26 @@ async function openModalConsultation(id) {
 async function filterPacientes() {
     const query = document.getElementById('searchPaciente').value;
     if (query.length > 2) {
-        const url = routes.clientes + `?name=${query}`;
-        const response = await fetch(url);
-        const pacientes = await response.json();
+        try {
+            const response = await apiService._fetch(`${routes.clientes}?name=${query}`);
+            const pacientes = await response.json();
 
         const pacienteList = document.getElementById('pacienteList');
         pacienteList.innerHTML = '';
 
-        pacientes.forEach(paciente => {
-            const li = document.createElement('li');
-            li.classList.add('list-group-item');
-            li.textContent = paciente.name;
-            li.onclick = () => selectPaciente(paciente);
-            pacienteList.appendChild(li);
-        });
-    }
-    else {
+            pacientes.forEach(paciente => {
+                const li = document.createElement('li');
+                li.classList.add('list-group-item');
+                li.textContent = paciente.name;
+                li.onclick = () => selectPaciente(paciente);
+                pacienteList.appendChild(li);
+            });
+        } catch (error) {
+            console.error('Erro ao buscar pacientes:', error);
+        }
+    } else {
         document.getElementById('pacienteList').innerHTML = '';
     }
-
 }
 
 function selectPaciente(paciente) {
