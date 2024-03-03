@@ -804,7 +804,7 @@ async function postProfessional() {
     const response = await apiService.postProfessional(professional);
 };
 
-async function postAddress() {
+function postAddress() {
     return {
         country: document.getElementById('pais').value,
         state: document.getElementById('estado').value,
