@@ -1,340 +1,256 @@
 const routes = {
-    users: "http://localhost:8080/users",
-    clientes: "http://localhost:8080/clients",
-    professionals: "http://localhost:8080/professionals",
-    consultations: "http://localhost:8080/consultations"
+    users: `${API_BASE_URL}/users`,
+    clientes: `${API_BASE_URL}/clients`,
+    professionals: `${API_BASE_URL}/professionals`,
+    consultations: `${API_BASE_URL}/consultations`
 };
 
 const apiService = {
 
-    async getUsers() {
-        const route = routes.users;
-        const response = await fetch(route);
-        return await response.json();
-    },
-    async getClients() {
-        const route = routes.clientes;
-        const response = await fetch(route);
-        return await response.json();
-    },
-    async getProfessionals() {
-        const route = routes.professionals;
-        const response = await fetch(route);
-        return await response.json();
-    },
-    async getUserById(id) {
-        const route = routes.users + `/${id}`;
-        const response = await fetch(route);
-        return await response.json();
-    },
-    async getClientById(id) {
-        const route = routes.clientes + `/${id}`;
-        const response = await fetch(route);
-        console.log(response);
-        return await response.json();
-    },
-    async getProfessionalById(id) {
-        const route = routes.professionals + `/${id}`;
-        const response = await fetch(route);
-        return await response.json();
-    },
-    async getConsultationById(id) {
-        const route = routes.consultations + `/${id}`;
-        const response = await fetch(route);
-        return await response.json();
+    async _fetch(url, options = {}) {
+        const response = await fetch(url, options);
+        if (!response.ok && response.status !== 204) {
+            throw new Error(`HTTP ${response.status} em ${url}`);
+        }
+        return response;
     },
 
+    async getUsers() {
+        const response = await this._fetch(routes.users);
+        return response.json();
+    },
+    async getClients() {
+        const response = await this._fetch(routes.clientes);
+        return response.json();
+    },
+    async getProfessionals() {
+        const response = await this._fetch(routes.professionals);
+        return response.json();
+    },
+    async getUserById(id) {
+        const response = await this._fetch(`${routes.users}/${id}`);
+        return response.json();
+    },
+    async getClientById(id) {
+        const response = await this._fetch(`${routes.clientes}/${id}`);
+        return response.json();
+    },
+    async getProfessionalById(id) {
+        const response = await this._fetch(`${routes.professionals}/${id}`);
+        return response.json();
+    },
+    async getConsultationById(id) {
+        const response = await this._fetch(`${routes.consultations}/${id}`);
+        return response.json();
+    },
     async getAvailableHours(date, type) {
-        const route = routes.consultations + `/available?date=${date}&type=${type}`;
-        const response = await fetch(route);
-        return await response.json();
+        const response = await this._fetch(`${routes.consultations}/available?date=${date}&type=${type}`);
+        return response.json();
     },
     async getAgenda(type) {
-        const route = routes.consultations + `/agenda/${type}`;
-        const response = await fetch(route);
-        return await response.json();
+        const response = await this._fetch(`${routes.consultations}/agenda/${type}`);
+        return response.json();
     },
     async getReports(type) {
-        const route = routes.consultations + `/reports/${type}`;
-        const response = await fetch(route);
-        return await response.json();
+        const response = await this._fetch(`${routes.consultations}/reports/${type}`);
+        return response.json();
     },
 
     async login(login) {
-        const route = routes.users + '/login';
-        
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(login),     
-        };
-        
-        const response = await fetch(route, options);
-        
-        if (response.status === 200) {
-            window.location.href = "src/inicio.html";
-        } 
-        else if (response.status === 404) {
-            document.getElementById('errorMessage').textContent = 'Usuário não encontrado';
+        try {
+            const response = await fetch(routes.users + '/login', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(login),
+            });
+            if (response.status === 200) {
+                window.location.href = "src/inicio.html";
+            } else if (response.status === 404) {
+                document.getElementById('errorMessage').textContent = 'Usuário não encontrado';
+            } else {
+                document.getElementById('errorMessage').textContent = 'Usuário ou senha incorretos.';
+            }
+            return response.json();
+        } catch (error) {
+            document.getElementById('errorMessage').textContent = 'Erro de conexão com o servidor.';
         }
-        else {
-            document.getElementById('errorMessage').textContent = 'Usuário ou senha incorretos.';
-        }  
-
-        return await response.json();
     },
 
     async postUser(user) {
-        const route = routes.users;
-        
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),     
-        };
-        
-        const response = await fetch(route, options);
-        
-        if (response.status === 201) {
-            alert("Cadastro realizado com sucesso!");
-            window.location.href = "inicio.html";
-        } else {
+        try {
+            const response = await this._fetch(routes.users, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(user),
+            });
+            if (response.status === 201) {
+                alert("Cadastro realizado com sucesso!");
+                window.location.href = "inicio.html";
+            }
+        } catch (error) {
             alert("Erro ao realizar o cadastro. Tente novamente.");
-        }  
-
-        return await response.json();
+        }
     },
     async postClient(client) {
-        const route = routes.clientes;
-
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(client),     
-        };
-        
-        const response = await fetch(route, options);
-        
-        if (response.status === 201) {
-            alert("Cadastro realizado com sucesso!");
-            window.location.href = "inicio.html";
-        } else {
+        try {
+            const response = await this._fetch(routes.clientes, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(client),
+            });
+            if (response.status === 201) {
+                alert("Cadastro realizado com sucesso!");
+                window.location.href = "inicio.html";
+            }
+        } catch (error) {
             alert("Erro ao realizar o cadastro. Tente novamente.");
-        }  
-
-        return await response.json();
-
+        }
     },
     async postProfessional(professional) {
-        const route = routes.professionals;
-
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(professional),     
-        };
-        
-        const response = await fetch(route, options);
-        
-        if (response.status === 201) {
-            alert("Cadastro realizado com sucesso!");
-            window.location.href = "inicio.html";
-        } else {
+        try {
+            const response = await this._fetch(routes.professionals, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(professional),
+            });
+            if (response.status === 201) {
+                alert("Cadastro realizado com sucesso!");
+                window.location.href = "inicio.html";
+            }
+        } catch (error) {
             alert("Erro ao realizar o cadastro. Tente novamente.");
-        }  
-        
-        return await response.json();
+        }
     },
-
     async postConsultation(consultation) {
-        const route = routes.consultations;
-
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(consultation),     
-        };
-        
-        const response = await fetch(route, options);
-        
-        if (response.status === 201) {
-            alert("Agendamento realizado com sucesso!");
-            window.location.href = "inicio.html";
-        } else {
+        try {
+            const response = await this._fetch(routes.consultations, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(consultation),
+            });
+            if (response.status === 201) {
+                alert("Agendamento realizado com sucesso!");
+                window.location.href = "inicio.html";
+            }
+        } catch (error) {
             alert("Erro ao realizar o agendamento. Tente novamente.");
-        }  
-        
-        return await response.json();
+        }
     },
 
     async updateClient(id, updatedClient) {
-        const route = routes.clientes + `/${id}`;
-        const options = {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedClient)
-        };
-        
-        const response = await fetch(route, options);
-        
-        if (response.status === 200) {
-            alert("Alterações realizadas com sucesso!");
-            window.location.reload();
-        } else {
+        try {
+            const response = await this._fetch(`${routes.clientes}/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(updatedClient),
+            });
+            if (response.status === 200) {
+                alert("Alterações realizadas com sucesso!");
+                window.location.reload();
+            }
+        } catch (error) {
             alert("Erro ao realizar as alterações. Tente novamente.");
         }
-
-        return await response.json();  
     },
     async updateUser(id, updatedUser) {
-        const route = routes.users + `/${id}`;
-        const options = {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedUser)
-        };
-        
-        const response = await fetch(route, options);
-        
-        if (response.status === 200) {
-            alert("Alterações realizadas com sucesso!");
-            window.location.reload();
-        } else {
+        try {
+            const response = await this._fetch(`${routes.users}/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(updatedUser),
+            });
+            if (response.status === 200) {
+                alert("Alterações realizadas com sucesso!");
+                window.location.reload();
+            }
+        } catch (error) {
             alert("Erro ao realizar as alterações. Tente novamente.");
         }
-
-        return await response.json();
     },
     async updateProfessional(id, updatedProfessional) {
-        const route = routes.professionals + `/${id}`;
-        const options = {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedProfessional)
-        };
-        
-        const response = await fetch(route, options);
-        
-        if (response.status === 200) {
-            alert("Alterações realizadas com sucesso!");
-            window.location.reload();
-        } else {
+        try {
+            const response = await this._fetch(`${routes.professionals}/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(updatedProfessional),
+            });
+            if (response.status === 200) {
+                alert("Alterações realizadas com sucesso!");
+                window.location.reload();
+            }
+        } catch (error) {
             alert("Erro ao realizar as alterações. Tente novamente.");
         }
-
-        return await response.json();
     },
     async updateConsultation(id, updatedConsultation) {
-        const route = routes.consultations + `/${id}`
-        const options = {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedConsultation)
-        };
-        
-        const response = await fetch(route, options);
-        
-        if (response.status === 200) {
-            alert("Alterações realizadas com sucesso!");
-            window.location.reload();
-        } else {
+        try {
+            const response = await this._fetch(`${routes.consultations}/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(updatedConsultation),
+            });
+            if (response.status === 200) {
+                alert("Alterações realizadas com sucesso!");
+                window.location.reload();
+            }
+        } catch (error) {
             alert("Erro ao realizar as alterações. Tente novamente.");
         }
-
-        return await response.json();
     },
 
     async deleteClient(id) {
-        const route = routes.clientes + `/${id}`;
-        const options = {
-            method: "DELETE"
-        }
-        const response = await fetch(route, options);
-
-        if (response.status == 204) {
+        try {
+            await this._fetch(`${routes.clientes}/${id}`, { method: "DELETE" });
             alert('Cliente deletado com sucesso');
             loadClients();
-        } else {
+        } catch (error) {
             alert('Erro ao deletar cliente');
-        }      
+        }
     },
     async deleteUser(id) {
-        const route = routes.users + `/${id}`;
-        const options = {
-            method: "DELETE"
-        }
-        const response = await fetch(route, options);
-
-        if (response.status == 204) {
+        try {
+            await this._fetch(`${routes.users}/${id}`, { method: "DELETE" });
             alert('Colaborador deletado com sucesso');
             loadUsers();
-        } else {
+        } catch (error) {
             alert('Erro ao deletar colaborador');
-        }      
+        }
     },
     async deleteProfessional(id) {
-        const route = routes.professionals + `/${id}`;
-        const options = {
-            method: "DELETE"
-        }
-        const response = await fetch(route, options);
-
-        if (response.status == 204) {
+        try {
+            await this._fetch(`${routes.professionals}/${id}`, { method: "DELETE" });
             alert('Profissional deletado com sucesso');
             loadProfessionals();
-        } else {
+        } catch (error) {
             alert('Erro ao deletar profissional');
-        }      
+        }
     },
     async deleteConsultation(id) {
-        const route = routes.consultations + `/${id}`;
-        const options = {
-            method: "DELETE"
-        }
-        const response = await fetch(route, options);
-
-        if (response.status == 204) {
+        try {
+            await this._fetch(`${routes.consultations}/${id}`, { method: "DELETE" });
             alert('Consulta deletada com sucesso');
             window.location.reload();
-        } else {
+        } catch (error) {
             alert('Erro ao deletar consulta');
-        }      
+        }
     },
 
 };
 
-async function main() {   
+async function main() {
 
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', async function(event) {
             event.preventDefault();
             await login();
-        })
+        });
     }
 
-    await loadOptionProfessionals();
-    await loadClients();
-    await loadUsers();
-    await loadProfessionals();
+    if (document.getElementById('listaClientesEditar')) await loadClients();
+    if (document.getElementById('listaColaboradoresEditar')) await loadUsers();
+    if (document.getElementById('listaProfissionaisEditar')) await loadProfessionals();
+    if (document.getElementById('dentistaResponsavel')) await loadOptionProfessionals();
    
     const cadastroFormPaciente = document.getElementById('cadastroFormPaciente');
     if (cadastroFormPaciente) {
@@ -536,7 +452,6 @@ async function loadAvailableData(scheduledHour) {
 
         const scheduledOption = document.createElement('option');
         scheduledOption.value = scheduledHour;
-        console.log(scheduledHour);
         if (typeof scheduledHour != 'undefined' && scheduledHour != '') {
             scheduledOption.text = scheduledHour;
         }
@@ -576,8 +491,7 @@ async function loadAvailableData(scheduledHour) {
 
 async function loadAvailableProfessionals() {
     const selectedHour = document.getElementById('horarioList').value;
-    const date = document.getElementById('dataConsulta').value; 
-    console.log(date)
+    const date = document.getElementById('dataConsulta').value;
     const type = document.getElementById('tipoConsulta').value;
 
     try {
@@ -597,9 +511,6 @@ async function loadAvailableProfessionals() {
             try {
                 const professionalResponse = await apiService.getProfessionalById(professionalId);
                 const professionalName = professionalResponse.name;
-                console.log(professionalId)
-                console.log(professionalName)
-
                 const option = document.createElement('option');
                 option.value = professionalId;
                 option.text = professionalName;
@@ -677,9 +588,7 @@ async function loadNormalAgenda() {
 
 async function loadSurgeonAgenda() {
     try {
-        const agenda = await apiService.getAgenda('cirurgia')
-        console.log(agenda)
-
+        const agenda = await apiService.getAgenda('cirurgia');
         const listaConsultas = document.getElementById('cirurgias').getElementsByTagName('tbody')[0];
         listaConsultas.innerHTML = ''; 
 
