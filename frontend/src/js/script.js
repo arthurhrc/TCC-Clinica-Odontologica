@@ -1008,8 +1008,8 @@ async function openModalProfessional(id) {
     document.getElementById('nomeCompleto').value = professional.name;
     document.getElementById('email').value = professional.email;
     document.getElementById('phone').value = professional.phone;
-    document.getElementById('dataNascimento').value = professional.birthdate;
-    document.getElementById('dataCadastro').value = professional.registrationDate;
+    document.getElementById('dataNascimento').value = formatDate(professional.birthdate);
+    document.getElementById('dataCadastro').value = formatDate(professional.registrationDate);
     document.getElementById('cpf').value = professional.cpf;
     document.getElementById('rg').value = professional.rg;
     document.getElementById('sexo').value = genderValue(professional.gender);
