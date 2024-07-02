@@ -1031,9 +1031,7 @@ async function openModalConsultation(id) {
     document.getElementById('clientId').value = consultation.client.id;
     document.getElementById('professional').value = consultation.professional.name;
     
-    await loadAvailableData(consultation.hourInit);  
-    //await loadAvailableProfessionals();  
-
+    await loadAvailableData(consultation.hourInit);
     showModal();
 }
 
