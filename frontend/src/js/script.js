@@ -804,6 +804,25 @@ async function postProfessional() {
     const response = await apiService.postProfessional(professional);
 };
 
+async function buscarCep() {
+    const cep = document.getElementById('cep').value.replace(/\D/g, '');
+    if (cep.length !== 8) return;
+
+    try {
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
+        if (data.erro) return;
+
+        document.getElementById('rua').value = data.logradouro || '';
+        document.getElementById('bairro').value = data.bairro || '';
+        document.getElementById('cidade').value = data.localidade || '';
+        document.getElementById('estado').value = data.uf || '';
+        document.getElementById('pais').value = 'Brasil';
+    } catch (error) {
+        console.error('Erro ao buscar CEP:', error);
+    }
+}
+
 function postAddress() {
     return {
         country: document.getElementById('pais').value,
