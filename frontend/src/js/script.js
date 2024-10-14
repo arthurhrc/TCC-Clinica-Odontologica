@@ -754,6 +754,11 @@ async function login() {
 };
 
 async function postClient() {
+    const cpf = document.getElementById('cpf').value;
+    if (!validarCpf(cpf)) {
+        alert('CPF inválido. Verifique o número informado.');
+        return;
+    }
     const client = {
         name: document.getElementById('nomeCompleto').value,
         email: document.getElementById('email').value,
@@ -770,6 +775,11 @@ async function postClient() {
 };
 
 async function postUser() {
+    const cpf = document.getElementById('cpf').value;
+    if (!validarCpf(cpf)) {
+        alert('CPF inválido. Verifique o número informado.');
+        return;
+    }
     const user = {
         name: document.getElementById('nomeCompleto').value,
         email: document.getElementById('email').value,
@@ -789,6 +799,11 @@ async function postUser() {
 };
 
 async function postProfessional() {
+    const cpf = document.getElementById('cpf').value;
+    if (!validarCpf(cpf)) {
+        alert('CPF inválido. Verifique o número informado.');
+        return;
+    }
     const professional = {
         name: document.getElementById('nomeCompleto').value,
         email: document.getElementById('email').value,
@@ -1092,6 +1107,23 @@ function selectPaciente(paciente) {
 function showModal() {
     const editModal = new bootstrap.Modal(document.getElementById('editModal'));
     editModal.show();      
+}
+
+function validarCpf(cpf) {
+    cpf = cpf.replace(/\D/g, '');
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+
+    let soma = 0;
+    for (let i = 0; i < 9; i++) soma += parseInt(cpf[i]) * (10 - i);
+    let digito1 = (soma * 10) % 11;
+    if (digito1 === 10 || digito1 === 11) digito1 = 0;
+    if (digito1 !== parseInt(cpf[9])) return false;
+
+    soma = 0;
+    for (let i = 0; i < 10; i++) soma += parseInt(cpf[i]) * (11 - i);
+    let digito2 = (soma * 10) % 11;
+    if (digito2 === 10 || digito2 === 11) digito2 = 0;
+    return digito2 === parseInt(cpf[10]);
 }
 
 function validarSenhas() {
