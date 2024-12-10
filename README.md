@@ -47,15 +47,24 @@ Abra o arquivo `frontend/index.html` diretamente no navegador ou sirva a pasta
 odontologia/
 ├── backend/
 │   └── src/main/java/com/trabalho/odontologia/
-│       ├── controllers/
-│       ├── services/
-│       ├── repositories/
-│       ├── entities/
-│       └── config/
+│       ├── controllers/      # Endpoints REST
+│       ├── services/         # Regras de negócio
+│       ├── repositories/     # Acesso a dados (Spring Data JPA)
+│       ├── entities/         # Entidades JPA (Client, Professional, User, Consultation, Address)
+│       └── config/           # Configuração de CORS
 └── frontend/
-    ├── index.html
+    ├── index.html            # Página de login
     └── src/
-        ├── css/
+        ├── css/styles.css    # Estilos globais
         ├── js/
-        └── *.html
+        │   ├── config.js     # URL base da API
+        │   ├── navbar.js     # Componente de navegação (injetado via JS)
+        │   └── script.js     # Lógica da aplicação
+        └── *.html            # Páginas internas
 ```
+
+## Observações técnicas
+
+- O frontend consome a API REST do backend via `fetch` com tratamento centralizado de erros no `apiService`
+- O preenchimento automático de endereço utiliza a API pública [ViaCEP](https://viacep.com.br)
+- Validação de CPF implementada client-side antes de enviar ao servidor
