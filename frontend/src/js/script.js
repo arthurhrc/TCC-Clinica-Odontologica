@@ -963,25 +963,25 @@ async function updateConsultation() {
 
 async function deleteClient(id) {
     if (confirm('Deseja realmente deletar este cliente?')) {
-        const response = apiService.deleteClient(id);
+        await apiService.deleteClient(id);
     }
 }
 
 async function deleteUser(id) {
     if (confirm('Deseja realmente deletar este colaborador?')) {
-        const response = apiService.deleteUser(id);
+        await apiService.deleteUser(id);
     }
 }
 
 async function deleteProfessional(id) {
     if (confirm('Deseja realmente deletar este profissional?')) {
-        const response = apiService.deleteProfessional(id);
+        await apiService.deleteProfessional(id);
     }
 }
 
 async function deleteConsultation(id) {
     if (confirm('Deseja realmente deletar esta consulta?')) {
-        const response = apiService.deleteConsultation(id);
+        await apiService.deleteConsultation(id);
     }
 }
 
