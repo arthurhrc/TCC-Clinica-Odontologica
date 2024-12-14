@@ -985,7 +985,7 @@ async function deleteConsultation(id) {
     }
 }
 
-async function populateFormAddress(address) {
+function populateFormAddress(address) {
     document.getElementById('pais').value = address.country;
     document.getElementById('estado').value = address.state;
     document.getElementById('cidade').value = address.city;
