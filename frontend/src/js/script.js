@@ -939,7 +939,7 @@ async function updateProfessional() {
 async function updateConsultation() {
     const id = document.getElementById('id').value;
     const consultation = await apiService.getConsultationById(id);
-    professionalId = consultation.professional.id;
+    const professionalId = consultation.professional.id;
 
     const updatedConsultation = {
         type: document.getElementById('tipoConsulta').value,
