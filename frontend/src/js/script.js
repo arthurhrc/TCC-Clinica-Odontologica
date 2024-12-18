@@ -997,76 +997,85 @@ function populateFormAddress(address) {
 }
 
 async function openModalClient(id) {
-    const client = await apiService.getClientById(id);
-        
-    document.getElementById('id').value = client.id;
-    document.getElementById('nomeCompleto').value = client.name;
-    document.getElementById('email').value = client.email;
-    document.getElementById('phone').value = client.phone;
-    document.getElementById('dataNascimento').value = formatDate(client.birthdate);
-    document.getElementById('dataCadastro').value = formatDate(client.registrationDate);
-    document.getElementById('cpf').value = client.cpf;
-    document.getElementById('rg').value = client.rg;
-    document.getElementById('sexo').value = genderValue(client.gender);
-    document.getElementById('estadoCivil').value = maritalStatusValue(client.maritalStatus);
-    populateFormAddress(client.address);
-
-    showModal();
+    try {
+        const client = await apiService.getClientById(id);
+        document.getElementById('id').value = client.id;
+        document.getElementById('nomeCompleto').value = client.name;
+        document.getElementById('email').value = client.email;
+        document.getElementById('phone').value = client.phone;
+        document.getElementById('dataNascimento').value = formatDate(client.birthdate);
+        document.getElementById('dataCadastro').value = formatDate(client.registrationDate);
+        document.getElementById('cpf').value = client.cpf;
+        document.getElementById('rg').value = client.rg;
+        document.getElementById('sexo').value = genderValue(client.gender);
+        document.getElementById('estadoCivil').value = maritalStatusValue(client.maritalStatus);
+        populateFormAddress(client.address);
+        showModal();
+    } catch (error) {
+        console.error('Erro ao carregar dados do paciente:', error);
+        alert('Não foi possível carregar os dados do paciente.');
+    }
 }
 
 async function openModalUser(id) {
-    const user = await apiService.getUserById(id);
-        
-    document.getElementById('id').value = user.id;
-    document.getElementById('nomeCompleto').value = user.name;
-    document.getElementById('email').value = user.email;
-    document.getElementById('phone').value = user.phone;
-    document.getElementById('dataNascimento').value = formatDate(user.birthdate);
-    document.getElementById('dataCadastro').value = formatDate(user.registrationDate);
-    document.getElementById('cpf').value = user.cpf;
-    document.getElementById('rg').value = user.rg;
-    document.getElementById('sexo').value = genderValue(user.gender);
-    document.getElementById('username').value = user.username;
-    document.getElementById('senha').value = user.password;
-
-    populateFormAddress(user.address);
-
-    showModal();
+    try {
+        const user = await apiService.getUserById(id);
+        document.getElementById('id').value = user.id;
+        document.getElementById('nomeCompleto').value = user.name;
+        document.getElementById('email').value = user.email;
+        document.getElementById('phone').value = user.phone;
+        document.getElementById('dataNascimento').value = formatDate(user.birthdate);
+        document.getElementById('dataCadastro').value = formatDate(user.registrationDate);
+        document.getElementById('cpf').value = user.cpf;
+        document.getElementById('rg').value = user.rg;
+        document.getElementById('sexo').value = genderValue(user.gender);
+        document.getElementById('username').value = user.username;
+        document.getElementById('senha').value = user.password;
+        populateFormAddress(user.address);
+        showModal();
+    } catch (error) {
+        console.error('Erro ao carregar dados do colaborador:', error);
+        alert('Não foi possível carregar os dados do colaborador.');
+    }
 }
 
 async function openModalProfessional(id) {
-
-    const professional = await apiService.getProfessionalById(id);
-        
-    document.getElementById('id').value = professional.id;
-    document.getElementById('nomeCompleto').value = professional.name;
-    document.getElementById('email').value = professional.email;
-    document.getElementById('phone').value = professional.phone;
-    document.getElementById('dataNascimento').value = formatDate(professional.birthdate);
-    document.getElementById('dataCadastro').value = formatDate(professional.registrationDate);
-    document.getElementById('cpf').value = professional.cpf;
-    document.getElementById('rg').value = professional.rg;
-    document.getElementById('sexo').value = genderValue(professional.gender);
-    document.getElementById('especializacao').value = specializationValue(professional.specialization);
-
-    populateFormAddress(professional.address);
-
-    showModal();
+    try {
+        const professional = await apiService.getProfessionalById(id);
+        document.getElementById('id').value = professional.id;
+        document.getElementById('nomeCompleto').value = professional.name;
+        document.getElementById('email').value = professional.email;
+        document.getElementById('phone').value = professional.phone;
+        document.getElementById('dataNascimento').value = formatDate(professional.birthdate);
+        document.getElementById('dataCadastro').value = formatDate(professional.registrationDate);
+        document.getElementById('cpf').value = professional.cpf;
+        document.getElementById('rg').value = professional.rg;
+        document.getElementById('sexo').value = genderValue(professional.gender);
+        document.getElementById('especializacao').value = specializationValue(professional.specialization);
+        populateFormAddress(professional.address);
+        showModal();
+    } catch (error) {
+        console.error('Erro ao carregar dados do profissional:', error);
+        alert('Não foi possível carregar os dados do profissional.');
+    }
 }
 
 async function openModalConsultation(id) {
-    const consultation = await apiService.getConsultationById(id);   
-    
-    document.getElementById('id').value = consultation.id;
-    document.getElementById('dataConsulta').value = consultation.consultDate;
-    document.getElementById('tipoConsulta').value = consultation.type;
-    document.getElementById('value').value = consultation.consultationValue;
-    document.getElementById('client').value = consultation.client.name;
-    document.getElementById('clientId').value = consultation.client.id;
-    document.getElementById('professional').value = consultation.professional.name;
-    
-    await loadAvailableData(consultation.hourInit);
-    showModal();
+    try {
+        const consultation = await apiService.getConsultationById(id);
+        document.getElementById('id').value = consultation.id;
+        document.getElementById('dataConsulta').value = consultation.consultDate;
+        document.getElementById('tipoConsulta').value = consultation.type;
+        document.getElementById('value').value = consultation.consultationValue;
+        document.getElementById('client').value = consultation.client.name;
+        document.getElementById('clientId').value = consultation.client.id;
+        document.getElementById('professional').value = consultation.professional.name;
+        await loadAvailableData(consultation.hourInit);
+        showModal();
+    } catch (error) {
+        console.error('Erro ao carregar dados da consulta:', error);
+        alert('Não foi possível carregar os dados da consulta.');
+    }
 }
 
 
