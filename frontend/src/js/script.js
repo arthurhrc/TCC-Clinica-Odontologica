@@ -750,8 +750,8 @@ async function login() {
         password: document.getElementById('password').value
     };
 
-    const response = await apiService.login(login);
-};
+    await apiService.login(login);
+}
 
 async function postClient() {
     const cpf = document.getElementById('cpf').value;
@@ -1111,7 +1111,7 @@ function selectPaciente(paciente) {
     document.getElementById('pacienteList').innerHTML = '';
     document.getElementById('searchPaciente').value = '';
     modal.hide();
-};
+}
 
 function showModal() {
     const editModal = new bootstrap.Modal(document.getElementById('editModal'));
@@ -1158,7 +1158,7 @@ function genderValue(status) {
         "OTHER": 2
     };
     return genderMap[status];
-};
+}
 
 function maritalStatusValue(status) {
     const maritalStatusMap = {
@@ -1168,7 +1168,7 @@ function maritalStatusValue(status) {
         "WIDOWED": 3
     };
     return maritalStatusMap[status];
-};
+}
 
 function specializationValue(status) {
     const specializationMap = {
@@ -1176,7 +1176,7 @@ function specializationValue(status) {
         "SURGEON": 1
     };
     return specializationMap[status];
-};
+}
 
 function formatDateForDisplay(inputDate) {
     const date = new Date(inputDate);
