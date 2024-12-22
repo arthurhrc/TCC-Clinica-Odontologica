@@ -1180,23 +1180,17 @@ function specializationValue(status) {
 
 function formatDateForDisplay(inputDate) {
     const date = new Date(inputDate);
-
-    // Obtém o ano, mês e dia em UTC
     const year = date.getUTCFullYear();
-    const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Mês em UTC (0-based)
-    const day = String(date.getUTCDate()).padStart(2, '0');        // Dia em UTC
-
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
     return `${day}/${month}/${year}`;
 }
 
 function formatDate(inputDate) {
     const date = new Date(inputDate);
-
-    // Obtém o ano, mês e dia em UTC
     const year = date.getUTCFullYear();
-    const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Mês em UTC (0-based)
-    const day = String(date.getUTCDate()).padStart(2, '0');        // Dia em UTC
-
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
 }
 
