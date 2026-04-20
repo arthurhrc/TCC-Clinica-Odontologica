@@ -1,3 +1,3 @@
 const API_BASE_URL = window.location.hostname === 'localhost'
   ? 'http://localhost:8080'
-  : 'RAILWAY_URL_PLACEHOLDER';
+  : 'https://zoological-creativity-production-4ebf.up.railway.app';
