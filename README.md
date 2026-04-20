@@ -2,6 +2,8 @@
 
 Sistema web para gerenciamento de clínica odontológica, desenvolvido como trabalho de conclusão de curso.
 
+**Demo ao vivo:** [clinica-odontologica-arthurhrc.vercel.app](https://clinica-odontologica-arthurhrc.vercel.app)
+
 ## Funcionalidades
 
 - Cadastro e gerenciamento de pacientes, colaboradores e profissionais
