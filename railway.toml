@@ -1,0 +1,9 @@
+[build]
+builder = "nixpacks"
+buildCommand = "cd backend && ./mvnw clean package -DskipTests"
+
+[deploy]
+startCommand = "java -jar backend/target/*.jar"
+healthcheckPath = "/"
+healthcheckTimeout = 60
+restartPolicyType = "on_failure"
