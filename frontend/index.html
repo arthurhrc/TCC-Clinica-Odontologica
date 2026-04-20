@@ -4,42 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/styles.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="src/css/login.css">
+    <title>OdontoClinic — Login</title>
 </head>
-<body>
-    <div class="login-container">
-        <div class="login-box">
-            <h2>Login</h2>
+<body class="login-page">
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-brand">
+                <div class="login-brand-icon">🦷</div>
+                <h1>OdontoClinic</h1>
+                <p>Sistema de Gestão Odontológica</p>
+            </div>
+
             <form id="loginForm">
-                <div class="input-group">
+                <div class="field-group">
                     <label for="username">Usuário</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
                 </div>
-                <div class="input-group">
+                <div class="field-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
                 </div>
-                <button type="submit" class="submit-btn">Entrar</button>
+                <button type="submit" class="btn-login">Entrar</button>
+                <p id="errorMessage"></p>
             </form>
 
-            <p id="errorMessage" style="color:red; margin-top: 10px;"></p>
-
-        </div>
-
-        <div class="demo-card">
-            <p class="demo-title">🔑 Acesso demo</p>
-            <div class="demo-users">
-                <button class="demo-user" onclick="fillCredentials('pedro.souza', 'senha123')">
-                    <span class="demo-role">Colaborador</span>
-                    <span class="demo-creds">pedro.souza / senha123</span>
-                </button>
-                <button class="demo-user" onclick="fillCredentials('ricardo.almeida', 'senha789')">
-                    <span class="demo-role">Gerente</span>
-                    <span class="demo-creds">ricardo.almeida / senha789</span>
-                </button>
+            <div class="demo-section">
+                <span class="demo-label">Acesso rápido para demonstração</span>
+                <div class="demo-buttons">
+                    <button class="demo-btn" onclick="fillCredentials('pedro.souza', 'senha123')">
+                        <span class="demo-btn-role">Colaborador</span>
+                        <span class="demo-btn-info">pedro.souza</span>
+                    </button>
+                    <button class="demo-btn" onclick="fillCredentials('ricardo.almeida', 'senha789')">
+                        <span class="demo-btn-role">Gerente</span>
+                        <span class="demo-btn-info">ricardo.almeida</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
+    <script src="src/js/config.js"></script>
     <script src="src/js/script.js"></script>
     <script>
         function fillCredentials(user, pass) {
