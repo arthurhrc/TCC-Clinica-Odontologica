@@ -1,7 +1,7 @@
 FROM maven:3.9-eclipse-temurin-21 AS builder
 WORKDIR /app
 COPY backend/ .
-RUN mvn clean package -Dmaven.test.skip=true -e 2>&1 | tee /build.log; test ${PIPESTATUS[0]} -eq 0 || (tail -200 /build.log && exit 1)
+RUN mvn clean package -Dmaven.test.skip=true
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
