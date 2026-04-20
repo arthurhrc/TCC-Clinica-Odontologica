@@ -25,7 +25,28 @@
             <p id="errorMessage" style="color:red; margin-top: 10px;"></p>
 
         </div>
+
+        <div class="demo-card">
+            <p class="demo-title">🔑 Acesso demo</p>
+            <div class="demo-users">
+                <button class="demo-user" onclick="fillCredentials('pedro.souza', 'senha123')">
+                    <span class="demo-role">Colaborador</span>
+                    <span class="demo-creds">pedro.souza / senha123</span>
+                </button>
+                <button class="demo-user" onclick="fillCredentials('ricardo.almeida', 'senha789')">
+                    <span class="demo-role">Gerente</span>
+                    <span class="demo-creds">ricardo.almeida / senha789</span>
+                </button>
+            </div>
+        </div>
     </div>
     <script src="src/js/script.js"></script>
+    <script>
+        function fillCredentials(user, pass) {
+            document.getElementById('username').value = user;
+            document.getElementById('password').value = pass;
+            document.getElementById('loginForm').requestSubmit();
+        }
+    </script>
 </body>
 </html>

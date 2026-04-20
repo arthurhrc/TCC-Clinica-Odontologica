@@ -59,6 +59,58 @@ body {
     font-size: 16px;
 }
 
+.demo-card {
+    margin-top: 16px;
+    background: #fff;
+    border: 1px dashed #bbb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    width: 300px;
+    text-align: center;
+}
+
+.demo-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.demo-users {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.demo-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f0f4ff;
+    border: 1px solid #c7d7ff;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.15s;
+    width: 100%;
+}
+
+.demo-user:hover {
+    background: #dce8ff;
+}
+
+.demo-role {
+    font-size: 12px;
+    font-weight: bold;
+    color: #3a5fc8;
+}
+
+.demo-creds {
+    font-size: 12px;
+    color: #555;
+    font-family: monospace;
+}
+
 .menu-container {
     width: 100%;
     background-color: #333;
